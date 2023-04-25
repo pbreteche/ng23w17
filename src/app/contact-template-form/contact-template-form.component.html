@@ -1,20 +1,38 @@
-<form>
+<form #form="ngForm">
     <div>
         <label for="contact-firstname">Prénom</label>
         <input type="text" name="firstName" id="contact-firstname"
-        [(ngModel)]="contact.firstName" required>
+        [(ngModel)]="contact.firstName" required #firstName="ngModel">
+        <p class="error" *ngIf="firstName.invalid && firstName.touched">
+            Une erreur est présente sur ce champ.<br>
+            le test ne regarde pas spécifiquement quelle erreur a été déclenchée.
+        </p>
+        <p class="error" *ngIf="firstName.errors?.['required'] && firstName.touched">
+            Vous devez saisir un prénom.
+        </p>
+        <ul>
+            <li *ngFor="let error of firstName.errors | keyvalue">
+                {{ error.key }} : {{ error.value }}
+            </li>
+        </ul>
     </div>
     <div>
         <label for="contact-lastname">Nom de famille</label>
         <input type="text" name="lastName" id="contact-lastname"
-        [(ngModel)]="contact.lastName" required>
+        [(ngModel)]="contact.lastName" required  #lastName="ngModel">
+        <p class="error" *ngIf="lastName.errors?.['required'] && lastName.touched">
+            Vous devez saisir un prénom.
+        </p>
     </div>
     <div>
         <label for="contact-email">Email</label>
-        <input type="text" name="email" id="contact-email"
-         [(ngModel)]="contact.email" email>
+        <input type="email" name="email" id="contact-email"
+         [(ngModel)]="contact.email" email #email="ngModel">
+        <p class="error" *ngIf="email.errors?.['email'] && email.touched">
+            Vous devez respecter le format d'email.
+        </p>
     </div>
-    <button>Enregistrer</button>
+    <button [disabled]="form.invalid">Enregistrer</button>
 </form>
 
 <pre>
