@@ -1,8 +1,5 @@
 <h1>Liste de contacts</h1>
-<ul>
-  <li *ngFor="let contact of contacts">
-    <a (click)="setCurrent(contact)">{{ contact.firstName }} {{ contact.lastName }}</a>
-  </li>
-</ul>
+
+<app-contact-list (onSelect)="setCurrent($event)"></app-contact-list>
 
 <app-contact-detail [contact]="current"></app-contact-detail>
