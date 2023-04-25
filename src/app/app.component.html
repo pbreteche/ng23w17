@@ -1,7 +1,7 @@
 <h1>Liste de contacts</h1>
 <ul>
   <li *ngFor="let contact of contacts">
-    {{ contact.firstName }} {{ contact.lastName }}
+    <a (click)="setCurrent(contact)">{{ contact.firstName }} {{ contact.lastName }}</a>
   </li>
 </ul>
 

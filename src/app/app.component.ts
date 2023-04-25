@@ -10,4 +10,8 @@ import { Contact } from 'src/types/contact';
 export class AppComponent {
   contacts: Contact[] = contacts;
   current: Contact = contacts[0];
+
+  setCurrent(contact: Contact): void {
+    this.current = contact;
+  }
 }
