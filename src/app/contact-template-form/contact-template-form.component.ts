@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Contact } from 'src/types/contact';
+import { ContactListService } from '../service/contact-list.service';
 
 @Component({
   selector: 'app-contact-template-form',
@@ -9,8 +10,12 @@ import { Contact } from 'src/types/contact';
 export class ContactTemplateFormComponent {
   contact: Contact = {};
 
+  constructor(
+    public contactList: ContactListService
+  ) {}
+
   save() {
-    // TODO enregistrer this.contact dans la liste
+    this.contactList.contacts.push(this.contact);
     this.contact = {};
   }
 }
