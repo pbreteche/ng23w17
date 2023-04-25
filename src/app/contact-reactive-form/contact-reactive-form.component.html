@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="save()">
     <div>
         <label for="contact-firstname">Prénom</label>
         <input type="text" name="firstName" id="contact-firstname"

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ContactListService } from '../service/contact-list.service';
+import { Contact } from 'src/types/contact';
 
 @Component({
   selector: 'app-contact-reactive-form',
@@ -19,6 +21,10 @@ export class ContactReactiveFormComponent {
     ]),
   });
 
+  constructor(
+    public contactList: ContactListService
+  ) {}
+
   get(controlName: string) {
     return this.form.get(controlName);
   }
@@ -26,5 +32,11 @@ export class ContactReactiveFormComponent {
   // possibilité de proposer un accès direct à un FormControl
   get firstName() {
     return this.form.get('firstName');
+  }
+
+  save() {
+    console.log(this.form.value)
+    this.contactList.contacts.push(this.form.value as Contact);
+    this.form.reset();
   }
 }
