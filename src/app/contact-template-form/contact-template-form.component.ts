@@ -8,4 +8,9 @@ import { Contact } from 'src/types/contact';
 })
 export class ContactTemplateFormComponent {
   contact: Contact = {};
+
+  save() {
+    // TODO enregistrer this.contact dans la liste
+    this.contact = {};
+  }
 }
