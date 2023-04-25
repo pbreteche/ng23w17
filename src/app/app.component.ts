@@ -8,5 +8,6 @@ import { Contact } from 'src/types/contact';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  contacts: Contact[] = contacts
+  contacts: Contact[] = contacts;
+  current: Contact = contacts[0];
 }
