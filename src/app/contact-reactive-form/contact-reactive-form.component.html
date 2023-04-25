@@ -3,18 +3,27 @@
         <label for="contact-firstname">Prénom</label>
         <input type="text" name="firstName" id="contact-firstname"
         formControlName="firstName">
+        <p *ngIf="firstName?.errors?.['required'] && firstName?.touched">
+            Vous devez saisir un prénom.
+        </p>
     </div>
     <div>
         <label for="contact-lastname">Nom de famille</label>
         <input type="text" name="lastName" id="contact-lastname"
         formControlName="lastName">
+        <p *ngIf="get('lastName')?.errors?.['required'] && get('lastName')?.touched">
+            Vous devez saisir un nom de famille.
+        </p>
     </div>
     <div>
         <label for="contact-email">Email</label>
         <input type="email" name="email" id="contact-email"
         formControlName="email">
+        <p *ngIf="get('email')?.errors?.['email'] && get('email')?.touched">
+            Vérifiez votre format d'email.
+        </p>
     </div>
-    <button>Enregistrer</button>
+    <button [disabled]="form.invalid">Enregistrer</button>
 </form>
 
 <pre>

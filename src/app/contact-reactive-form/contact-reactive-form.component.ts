@@ -18,4 +18,13 @@ export class ContactReactiveFormComponent {
       Validators.email
     ]),
   });
+
+  get(controlName: string) {
+    return this.form.get(controlName);
+  }
+
+  // possibilité de proposer un accès direct à un FormControl
+  get firstName() {
+    return this.form.get('firstName');
+  }
 }
