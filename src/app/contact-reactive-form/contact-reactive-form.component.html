@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+    <div>
+        <label for="contact-firstname">Prénom</label>
+        <input type="text" name="firstName" id="contact-firstname"
+        formControlName="firstName">
+    </div>
+    <div>
+        <label for="contact-lastname">Nom de famille</label>
+        <input type="text" name="lastName" id="contact-lastname"
+        formControlName="lastName">
+    </div>
+    <div>
+        <label for="contact-email">Email</label>
+        <input type="email" name="email" id="contact-email"
+        formControlName="email">
+    </div>
+    <button>Enregistrer</button>
+</form>
+
+<pre>
+    {{ form.value | json }}
+</pre>
