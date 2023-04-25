@@ -1,5 +1,7 @@
 <h1>Liste de contacts</h1>
 
+<app-contact-template-form></app-contact-template-form>
+
 <app-contact-list (onSelect)="setCurrent($event)"></app-contact-list>
 
 <app-contact-detail [contact]="current"></app-contact-detail>
