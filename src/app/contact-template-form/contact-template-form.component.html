@@ -1,15 +1,18 @@
 <form>
     <div>
         <label for="contact-firstname">Prénom</label>
-        <input type="text" name="firstName" id="contact-firstname" [(ngModel)]="contact.firstName">
+        <input type="text" name="firstName" id="contact-firstname"
+        [(ngModel)]="contact.firstName" required>
     </div>
     <div>
         <label for="contact-lastname">Nom de famille</label>
-        <input type="text" name="lastName" id="contact-lastname" [(ngModel)]="contact.lastName">
+        <input type="text" name="lastName" id="contact-lastname"
+        [(ngModel)]="contact.lastName" required>
     </div>
     <div>
         <label for="contact-email">Email</label>
-        <input type="text" name="email" id="contact-email" [(ngModel)]="contact.email">
+        <input type="text" name="email" id="contact-email"
+         [(ngModel)]="contact.email" email>
     </div>
     <button>Enregistrer</button>
 </form>

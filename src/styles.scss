@@ -5,3 +5,9 @@ html {
     margin: 0 auto;
     color: $font-color;
 }
+
+input, select, textarea {
+    &.ng-touched.ng-invalid {
+        background-color: #fdd;
+    }
+}
