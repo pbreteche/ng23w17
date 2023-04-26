@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Contact } from 'src/types/contact';
 import { CurrentContactService } from './current-contact.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,12 @@ export class ContactListService {
     private current: CurrentContactService
   ) {
     this.client.get('/assets/contacts.json') // retourne un observable
+      .pipe(
+        catchError(error => {
+          console.error(error.status, error.message);
+          return of([]);
+        })
+      ) // pipe prend en entrée un observable, l'altère et retourne le nouvel observable modifié
       .subscribe(data => {
         this.contacts = data as Contact[];
         this.subject.next([...this.contacts]);
