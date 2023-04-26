@@ -1,0 +1,20 @@
+[
+    {
+        "firstName": "Bob",
+        "lastName": "Lenon",
+        "email": "bobby@beatles.uk",
+        "birthday": "1957-03-24"
+    },
+    {
+        "firstName": "Bob",
+        "lastName": "Marley",
+        "email": "bobby@reggae.ja",
+        "birthday": "1972-11-03"
+    },
+    {
+        "firstName": "Karl",
+        "lastName": "Lewis",
+        "email": "karl@lewis.us",
+        "birthday": "1964-06-11"
+    }
+]
