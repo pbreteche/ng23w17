@@ -30,6 +30,9 @@
         <p *ngIf="get('birthday')?.errors?.['maxDate'] && get('birthday')?.touched">
             La date d'anniversaire doit être antérieure à la date du jour.
         </p>
+        <p *ngIf="get('birthday')?.errors?.['minDate'] && get('birthday')?.touched">
+            La date d'anniversaire doit être ultérieure à {{ get('birthday')?.errors?.['minDate'].min | date }}.
+        </p>
     </div>
     <button [disabled]="form.invalid">Enregistrer</button>
 </form>

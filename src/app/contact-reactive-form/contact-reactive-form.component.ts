@@ -22,7 +22,8 @@ export class ContactReactiveFormComponent {
       Validators.email
     ]),
     birthday: new FormControl('', [
-      AppValidators.maxDate
+      AppValidators.maxDate,
+      AppValidators.minDate('1900-01-01')
     ]),
   });
 
