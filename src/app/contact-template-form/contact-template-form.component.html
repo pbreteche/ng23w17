@@ -35,9 +35,12 @@
     <div>
         <label for="contact-birthday">Anniversaire</label>
         <input type="date" name="birthday" id="contact-birthday"
-         [(ngModel)]="contact.birthday" appMaxDate #birthday="ngModel">
+         [(ngModel)]="contact.birthday" appMaxDate appMinDate="1900-01-01" #birthday="ngModel">
          <p class="error" *ngIf="birthday.errors?.['maxDate'] && (birthday.touched || birthday.dirty)">
              La date doit être antérieure à la date du jour.
+         </p>
+         <p class="error" *ngIf="birthday.errors?.['minDate'] && (birthday.touched || birthday.dirty)">
+             La date doit être ultérieure à {{ birthday.errors?.['minDate'].min | date }}.
          </p>
     </div>
     <button [disabled]="form.invalid">Enregistrer</button>
