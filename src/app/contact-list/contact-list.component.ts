@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Contact } from 'src/types/contact';
 import { ContactListService } from '../service/contact-list.service';
+import { CurrentContactService } from '../service/current-contact.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -8,14 +9,12 @@ import { ContactListService } from '../service/contact-list.service';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent {
-  @Output()
-  onSelect: EventEmitter<Contact> = new EventEmitter();
-
   constructor(
-    public contactList: ContactListService
+    public contactList: ContactListService,
+    private currentContact: CurrentContactService
   ) {}
 
   select(contact: Contact): void {
-    this.onSelect.emit(contact);
+    this.currentContact.contact = contact;
   }
 }

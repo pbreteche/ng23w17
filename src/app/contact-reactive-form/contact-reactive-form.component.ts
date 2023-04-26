@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContactListService } from '../service/contact-list.service';
 import { Contact } from 'src/types/contact';
+import { CurrentContactService } from '../service/current-contact.service';
 
 @Component({
   selector: 'app-contact-reactive-form',
@@ -9,8 +10,6 @@ import { Contact } from 'src/types/contact';
   styleUrls: ['./contact-reactive-form.component.scss']
 })
 export class ContactReactiveFormComponent {
-  @Output()
-  onSelect: EventEmitter<Contact> = new EventEmitter();
   form = new FormGroup({
     firstName: new FormControl('', [
       Validators.required
@@ -24,7 +23,8 @@ export class ContactReactiveFormComponent {
   });
 
   constructor(
-    public contactList: ContactListService
+    public contactList: ContactListService,
+    private currentContact: CurrentContactService
   ) {}
 
   get(controlName: string) {
@@ -39,7 +39,7 @@ export class ContactReactiveFormComponent {
   save() {
     const contact = this.form.value as Contact;
     this.contactList.contacts.push(contact);
-    this.onSelect.emit(contact);
+    this.currentContact.contact = contact;
     this.form.reset();
   }
 }

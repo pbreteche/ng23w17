@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Contact } from 'src/types/contact';
+import { CurrentContactService } from '../service/current-contact.service';
 
 @Component({
   selector: 'app-contact-detail',
@@ -7,6 +8,9 @@ import { Contact } from 'src/types/contact';
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent {
-  @Input()
-  contact?: Contact
+  constructor(private contactService: CurrentContactService) {}
+
+  get contact(): Contact {
+    return this.contactService.contact;
+  }
 }
