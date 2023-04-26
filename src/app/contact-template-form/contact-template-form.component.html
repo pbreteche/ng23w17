@@ -32,5 +32,13 @@
             Vous devez respecter le format d'email.
         </p>
     </div>
+    <div>
+        <label for="contact-birthday">Anniversaire</label>
+        <input type="date" name="birthday" id="contact-birthday"
+         [(ngModel)]="contact.birthday" appMaxDate #birthday="ngModel">
+         <p class="error" *ngIf="birthday.errors?.['maxDate'] && (birthday.touched || birthday.dirty)">
+             La date doit être antérieure à la date du jour.
+         </p>
+    </div>
     <button [disabled]="form.invalid">Enregistrer</button>
 </form>

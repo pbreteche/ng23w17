@@ -7,6 +7,7 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { ContactTemplateFormComponent } from './contact-template-form/contact-template-form.component';
 import { ContactReactiveFormComponent } from './contact-reactive-form/contact-reactive-form.component';
+import { MaxDateDirective } from './directives/max-date.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ContactReactiveFormComponent } from './contact-reactive-form/contact-re
     ContactDetailComponent,
     ContactListComponent,
     ContactTemplateFormComponent,
-    ContactReactiveFormComponent
+    ContactReactiveFormComponent,
+    MaxDateDirective
   ],
   imports: [
     BrowserModule,
