@@ -18,12 +18,18 @@ export class ContactListService {
     this.client.get('/assets/contacts.json') // retourne un observable
       .subscribe(data => {
         this.contacts = data as Contact[];
-        this.subject.next(this.contacts);
+        this.subject.next([...this.contacts]);
         this.current.contact = this.contacts[0];
       }) // souscrire en attachant une fonction de callback
   }
 
   get contacts$(): Observable<Contact[]> {
     return this.subject.asObservable();
+  }
+
+  push(contact: Contact): void {
+    this.contacts.push(contact);
+    this.current.contact = contact;
+    this.subject.next([...this.contacts]);
   }
 }
