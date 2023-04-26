@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Contact } from 'src/types/contact';
 import { CurrentContactService } from './current-contact.service';
@@ -15,7 +15,17 @@ export class ContactListService {
     private client: HttpClient,
     private current: CurrentContactService
   ) {
-    this.client.get('/assets/contacts.json') // retourne un observable
+    let headers = new HttpHeaders({
+      'Content-type': 'application/json',
+      'Custom-header': 'custom-value'
+    }); // permet de manipuler via les méthodes de HttpHeaders
+
+    this.client.get('/assets/contacts.json', {
+      headers: {
+        'Content-type': 'application/json',
+        'Custom-header': 'custom-value'
+      } // possible de passer simplement un objet littéral aussi
+    }) // retourne un observable
       .pipe(
         catchError(error => {
           console.error(error.status, error.message);
