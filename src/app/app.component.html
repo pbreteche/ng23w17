@@ -1,6 +1,6 @@
 <h1>Liste de contacts</h1>
 
-<app-contact-reactive-form></app-contact-reactive-form>
+<app-contact-reactive-form (onSelect)="setCurrent($event)"></app-contact-reactive-form>
 
 <app-contact-list (onSelect)="setCurrent($event)"></app-contact-list>
 
