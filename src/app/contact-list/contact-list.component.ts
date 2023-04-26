@@ -15,6 +15,6 @@ export class ContactListComponent {
   ) {}
 
   select(contact: Contact): void {
-    this.currentContact.contact = contact;
+    this.currentContact.set(contact);
   }
 }

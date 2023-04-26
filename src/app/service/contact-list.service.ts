@@ -25,7 +25,7 @@ export class ContactListService {
       .subscribe(data => {
         this.contacts = data as Contact[];
         this.subject.next([...this.contacts]);
-        this.current.contact = this.contacts[0];
+        this.current.set(this.contacts[0]);
       }) // souscrire en attachant une fonction de callback
   }
 
@@ -35,7 +35,7 @@ export class ContactListService {
 
   push(contact: Contact): void {
     this.contacts.push(contact);
-    this.current.contact = contact;
+    this.current.set(contact);
     this.subject.next([...this.contacts]);
   }
 }

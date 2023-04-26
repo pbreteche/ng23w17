@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Contact } from 'src/types/contact';
 import { CurrentContactService } from '../service/current-contact.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-contact-detail',
@@ -10,7 +11,15 @@ import { CurrentContactService } from '../service/current-contact.service';
 export class ContactDetailComponent {
   constructor(private contactService: CurrentContactService) {}
 
-  get contact(): Contact {
-    return this.contactService.contact;
+  get contact$(): Observable<Contact> {
+    return this.contactService.contact$;
+  }
+}
+
+export class ContactDetailComponent2 {
+  contact$: Observable<Contact>;
+
+  constructor(contactService: CurrentContactService) {
+    this.contact$ = contactService.contact$;
   }
 }
