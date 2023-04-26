@@ -3,5 +3,7 @@
     <dl>
         <dt>Email</dt>
         <dd>{{ contact.email }}</dd>
+        <dt>Anniversaire</dt>
+        <dd>{{ contact.birthday | date : 'shortDate' }}</dd>
     </dl>
 </article>
