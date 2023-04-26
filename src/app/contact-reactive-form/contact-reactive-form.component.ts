@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContactListService } from '../service/contact-list.service';
 import { Contact } from 'src/types/contact';
 import { CurrentContactService } from '../service/current-contact.service';
+import { Validators as AppValidators} from 'src/app/app.validators';
 
 @Component({
   selector: 'app-contact-reactive-form',
@@ -20,7 +21,9 @@ export class ContactReactiveFormComponent {
     email: new FormControl('', [
       Validators.email
     ]),
-    birthday: new FormControl(''),
+    birthday: new FormControl('', [
+      AppValidators.maxDate
+    ]),
   });
 
   constructor(

@@ -27,6 +27,9 @@
         <label for="contact-birthday">Anniversaire</label>
         <input type="date" name="birthday" id="contact-birthday"
         formControlName="birthday">
+        <p *ngIf="get('birthday')?.errors?.['maxDate'] && get('birthday')?.touched">
+            La date d'anniversaire doit être antérieure à la date du jour.
+        </p>
     </div>
     <button [disabled]="form.invalid">Enregistrer</button>
 </form>
