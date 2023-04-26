@@ -43,7 +43,7 @@ export class ContactReactiveFormComponent {
 
   save() {
     const contact = this.form.value as Contact;
-    this.contactList.contacts.push(contact);
+    //this.contactList.contacts.push(contact);
     this.currentContact.contact = contact;
     this.form.reset();
   }

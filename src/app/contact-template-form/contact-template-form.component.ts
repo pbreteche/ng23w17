@@ -15,7 +15,7 @@ export class ContactTemplateFormComponent {
   ) {}
 
   save() {
-    this.contactList.contacts.push(this.contact);
+    //this.contactList.contacts.push(this.contact);
     this.contact = {};
   }
 }

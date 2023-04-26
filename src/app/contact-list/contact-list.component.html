@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let contact of contactList.contacts">
+    <li *ngFor="let contact of contactList.contacts$ | async">
       <a (click)="select(contact)">{{ contact.firstName }} {{ contact.lastName }}</a>
     </li>
 </ul>
