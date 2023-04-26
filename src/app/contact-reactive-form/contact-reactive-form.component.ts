@@ -20,6 +20,7 @@ export class ContactReactiveFormComponent {
     email: new FormControl('', [
       Validators.email
     ]),
+    birthday: new FormControl(''),
   });
 
   constructor(

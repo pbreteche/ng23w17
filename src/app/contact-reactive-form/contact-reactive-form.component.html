@@ -23,6 +23,11 @@
             Vérifiez votre format d'email.
         </p>
     </div>
+    <div>
+        <label for="contact-birthday">Anniversaire</label>
+        <input type="date" name="birthday" id="contact-birthday"
+        formControlName="birthday">
+    </div>
     <button [disabled]="form.invalid">Enregistrer</button>
 </form>
 
