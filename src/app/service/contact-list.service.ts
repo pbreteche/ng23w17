@@ -47,5 +47,8 @@ export class ContactListService {
     this.contacts.push(contact);
     this.current.set(contact);
     this.subject.next([...this.contacts]);
+    this.client.post('/contact', contact)
+      .subscribe(data => console.log(data))
+    ;
   }
 }
