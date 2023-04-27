@@ -3,3 +3,8 @@
       <a [routerLink]="['detail', i]">{{ contact.firstName }} {{ contact.lastName }}</a>
     </li>
 </ul>
+
+<div>
+  <h2>Démo translitération</h2>
+  <p>{{ '你好, éôïÀç, 🍕🌹🌤' | translit : ['好'] }}</p>
+</div>

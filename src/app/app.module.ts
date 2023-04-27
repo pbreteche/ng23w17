@@ -16,6 +16,7 @@ import { routes } from './routes';
 import { LoginComponent } from './login/login.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { TranslitPipe } from './pipe/translit.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import localeFr from '@angular/common/locales/fr';
     ContactReactiveFormComponent,
     MaxDateDirective,
     MinDateDirective,
-    LoginComponent
+    LoginComponent,
+    TranslitPipe
   ],
   imports: [
     BrowserModule,
