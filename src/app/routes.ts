@@ -4,4 +4,5 @@ import { ContactTemplateFormComponent } from "./contact-template-form/contact-te
 export const routes = [
     { path: '', component: ContactListComponent },
     { path: 'new', component: ContactTemplateFormComponent },
+    { path: '**', redirectTo: '' },
 ];

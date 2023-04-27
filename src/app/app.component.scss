@@ -1,3 +1,25 @@
-ul {
-    list-style-type: square;
+nav {
+    background-color: #456;
+    color: #eee;
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+    
+        a {
+            color: inherit;
+            display: block;
+            padding: .5em;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            &.active {
+                background-color: #eee;
+                color: #234;
+            }
+        }
+    }
 }
