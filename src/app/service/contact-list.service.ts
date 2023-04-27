@@ -40,12 +40,14 @@ export class ContactListService {
     return this.subject.asObservable();
   }
 
-  push(contact: Contact): void {
+  push(contact: Contact): number {
     this.contacts.push(contact);
     this.subject.next([...this.contacts]);
     this.client.post('/contact', contact)
       .subscribe(data => console.log(data))
     ;
+
+    return this.contacts.length - 1;
   }
 
   get(id: number): Observable<Contact> {
