@@ -10,6 +10,7 @@ import { ContactTemplateFormComponent } from './contact-template-form/contact-te
 import { ContactReactiveFormComponent } from './contact-reactive-form/contact-reactive-form.component';
 import { MaxDateDirective } from './directives/max-date.directive';
 import { MinDateDirective } from './directives/min-date.directive';
+import { httpInterceptorsProviders } from './interceptors';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { MinDateDirective } from './directives/min-date.directive';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorsProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
