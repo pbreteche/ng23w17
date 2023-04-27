@@ -5,8 +5,8 @@ import { contactDetailTitleResolver } from "./resolver/contact-detail-title.reso
 import { contactResolver } from "./resolver/contact.resolver";
 
 export const routes = [
-    { path: '', component: ContactListComponent },
-    { path: 'new', component: ContactTemplateFormComponent },
+    { path: '', component: ContactListComponent, title: 'Accueil' },
+    { path: 'new', component: ContactTemplateFormComponent, title: 'Nouveau contact' },
     { 
         path: 'detail/:id', 
         component: ContactDetailComponent, 
