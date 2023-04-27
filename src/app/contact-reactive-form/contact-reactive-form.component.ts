@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContactListService } from '../service/contact-list.service';
 import { Contact } from 'src/types/contact';
-import { CurrentContactService } from '../service/current-contact.service';
 import { Validators as AppValidators} from 'src/app/app.validators';
 
 @Component({
@@ -29,7 +28,6 @@ export class ContactReactiveFormComponent {
 
   constructor(
     public contactList: ContactListService,
-    private currentContact: CurrentContactService
   ) {}
 
   get(controlName: string) {

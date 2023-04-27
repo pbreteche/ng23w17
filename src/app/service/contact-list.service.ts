@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Contact } from 'src/types/contact';
-import { CurrentContactService } from './current-contact.service';
 import { BehaviorSubject, Observable, catchError, firstValueFrom, of } from 'rxjs';
 
 @Injectable({
@@ -13,7 +12,6 @@ export class ContactListService {
 
   constructor(
     private client: HttpClient,
-    private current: CurrentContactService
   ) {
     let headers = new HttpHeaders({
       'Content-type': 'application/json',
@@ -35,7 +33,6 @@ export class ContactListService {
       .then(data => {
         this.contacts = data as Contact[];
         this.subject.next([...this.contacts]);
-        this.current.set(this.contacts[0]);
       }) // souscrire en attachant une fonction de callback
   }
 
@@ -45,10 +42,13 @@ export class ContactListService {
 
   push(contact: Contact): void {
     this.contacts.push(contact);
-    this.current.set(contact);
     this.subject.next([...this.contacts]);
     this.client.post('/contact', contact)
       .subscribe(data => console.log(data))
     ;
+  }
+
+  get(id: number): Contact {
+    return this.contacts[id];
   }
 }

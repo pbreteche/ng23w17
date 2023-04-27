@@ -1,17 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/types/contact';
-import { CurrentContactService } from '../service/current-contact.service';
-import { Observable } from 'rxjs';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ContactListService } from '../service/contact-list.service';
 
 @Component({
   selector: 'app-contact-detail',
   templateUrl: './contact-detail.component.html',
   styleUrls: ['./contact-detail.component.scss']
 })
-export class ContactDetailComponent {
-  constructor(private contactService: CurrentContactService) {}
+export class ContactDetailComponent implements OnInit {
+  contact?: Contact;
+  constructor(
+    private contactList: ContactListService,
+    private route: ActivatedRoute
+  ) {}
 
-  get contact$(): Observable<Contact> {
-    return this.contactService.contact$;
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const idParam = params.get('id');
+      if (idParam != null) {
+        this.contact = this.contactList.get(+idParam);
+      }
+    })
   }
 }
