@@ -11,6 +11,8 @@ import { ContactReactiveFormComponent } from './contact-reactive-form/contact-re
 import { MaxDateDirective } from './directives/max-date.directive';
 import { MinDateDirective } from './directives/min-date.directive';
 import { httpInterceptorsProviders } from './interceptors';
+import { RouterModule } from '@angular/router';
+import { routes } from './routes';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { httpInterceptorsProviders } from './interceptors';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     httpInterceptorsProviders

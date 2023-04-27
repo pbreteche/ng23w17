@@ -1,7 +1,10 @@
 <h1>Liste de contacts</h1>
 
-<app-contact-template-form></app-contact-template-form>
+<nav>
+    <ul>
+        <li><a routerLink="/">Accueil</a></li>
+        <li><a routerLink="/new">Nouveau</a></li>
+    </ul>
+</nav>
 
-<app-contact-list></app-contact-list>
-
-<app-contact-detail></app-contact-detail>
+<router-outlet></router-outlet>
