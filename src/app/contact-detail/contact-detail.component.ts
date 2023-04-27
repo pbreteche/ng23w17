@@ -15,11 +15,3 @@ export class ContactDetailComponent {
     return this.contactService.contact$;
   }
 }
-
-export class ContactDetailComponent2 {
-  contact$: Observable<Contact>;
-
-  constructor(contactService: CurrentContactService) {
-    this.contact$ = contactService.contact$;
-  }
-}
