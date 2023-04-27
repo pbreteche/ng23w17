@@ -14,6 +14,8 @@ import { httpInterceptorsProviders } from './interceptors';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { LoginComponent } from './login/login.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 
 @NgModule({
   declarations: [
@@ -38,4 +40,8 @@ import { LoginComponent } from './login/login.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    registerLocaleData(localeFr);
+  }
+ }

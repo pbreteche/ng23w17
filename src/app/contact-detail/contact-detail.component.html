@@ -4,6 +4,6 @@
         <dt>Email</dt>
         <dd>{{ contact.email }}</dd>
         <dt>Anniversaire</dt>
-        <dd>{{ contact.birthday | date : 'shortDate' }}</dd>
+        <dd>{{ contact.birthday | date : 'longDate' : undefined : 'fr' }}</dd>
     </dl>
 </article>
