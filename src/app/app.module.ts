@@ -13,6 +13,7 @@ import { MinDateDirective } from './directives/min-date.directive';
 import { httpInterceptorsProviders } from './interceptors';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { routes } from './routes';
     ContactTemplateFormComponent,
     ContactReactiveFormComponent,
     MaxDateDirective,
-    MinDateDirective
+    MinDateDirective,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,8 @@
+<p *ngIf="loginService.isLoggedIn; else loginBlock" >
+    <button (click)="logout()">Se déconnecter</button>
+</p>
+<ng-template #loginBlock>
+    <p>
+        <button (click)="login()">Se connecter</button>
+    </p>
+</ng-template>
