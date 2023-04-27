@@ -1,14 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Contact } from 'src/types/contact';
-import { BehaviorSubject, Observable, catchError, firstValueFrom, map, of } from 'rxjs';
+import { Observable, ReplaySubject, firstValueFrom, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactListService {
   private contacts: Contact[] = [];
-  private subject = new BehaviorSubject<Contact[]>([]);
+  private subject = new ReplaySubject<Contact[]>(1);
 
   constructor(
     private client: HttpClient,
@@ -51,7 +51,7 @@ export class ContactListService {
   }
 
   get(id: number): Observable<Contact> {
-    return this.subject.pipe(
+    return this.contacts$.pipe( // ne fonctionne pas dans le resolver si on utilise directement le subject
       map((contacts: Contact[]) => contacts[id])
     );
   }
