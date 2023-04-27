@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Contact } from 'src/types/contact';
-import { BehaviorSubject, Observable, catchError, firstValueFrom, of } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, firstValueFrom, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +48,9 @@ export class ContactListService {
     ;
   }
 
-  get(id: number): Contact {
-    return this.contacts[id];
+  get(id: number): Observable<Contact> {
+    return this.subject.pipe(
+      map((contacts: Contact[]) => contacts[id])
+    );
   }
 }
