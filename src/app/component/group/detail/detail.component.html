@@ -1,0 +1,10 @@
+<h2>Group {{ group }}</h2>
+
+<nav>
+    <ul>
+        <li><a [routerLink]="['/', slug]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Liste contacts</a></li>
+        <li><a [routerLink]="['/', slug, 'new']" routerLinkActive="active">Nouveau</a></li>
+    </ul>
+</nav>
+
+<router-outlet></router-outlet>

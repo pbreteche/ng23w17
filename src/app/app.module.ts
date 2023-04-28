@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { TranslitPipe } from './pipe/translit.pipe';
+import { IndexComponent } from './component/group/index/index.component';
+import { DetailComponent } from './component/group/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { TranslitPipe } from './pipe/translit.pipe';
     MaxDateDirective,
     MinDateDirective,
     LoginComponent,
-    TranslitPipe
+    TranslitPipe,
+    IndexComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

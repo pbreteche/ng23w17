@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContactListService } from '../service/contact-list.service';
 import { Contact } from 'src/types/contact';
 import { Validators as AppValidators} from 'src/app/app.validators';
+import { CurrentGroupService } from '../service/current-group.service';
 
 @Component({
   selector: 'app-contact-reactive-form',
@@ -28,6 +29,7 @@ export class ContactReactiveFormComponent {
 
   constructor(
     public contactList: ContactListService,
+    private current: CurrentGroupService
   ) {}
 
   get(controlName: string) {
@@ -41,7 +43,7 @@ export class ContactReactiveFormComponent {
 
   save() {
     const contact = this.form.value as Contact;
-    this.contactList.push(contact);
+    this.contactList.push(this.current.slug!, contact);
     this.form.reset();
   }
 }

@@ -1,0 +1,8 @@
+
+<nav>
+    <ul>
+        <li *ngFor="let group of groups | keyvalue">
+            <a [routerLink]="group.key">{{ group.value }}</a>
+        </li>
+    </ul>
+</nav>
