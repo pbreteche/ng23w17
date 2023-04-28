@@ -9,6 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ContactDetailComponent implements OnInit {
   contact?: Contact;
+
+  get nameClasses(): string {
+    return (this.contact?.firstName?.length || 0) > 3 ? 'long-name' : 'short-name';
+  }
+
   constructor(
     private route: ActivatedRoute
   ) {}
