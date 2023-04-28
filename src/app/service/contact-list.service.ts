@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Contact, ContactBook } from 'src/types/contact';
 import { Observable, ReplaySubject, firstValueFrom, map, of } from 'rxjs';
+import { API_URL_TOKEN } from '../app.module';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class ContactListService {
 
   constructor(
     private client: HttpClient,
+    @Inject(API_URL_TOKEN) private apiUrl: string
   ) {
     let headers = new HttpHeaders({
       'Content-type': 'application/json',

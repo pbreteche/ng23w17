@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +21,9 @@ import { IndexComponent } from './component/group/index/index.component';
 import { DetailComponent } from './component/group/detail/detail.component';
 import { HighlightedDirective } from './directive/highlighted.directive';
 import { UnlessDirective } from './directive/unless.directive';
+import { Demo } from './service/demo.service';
+
+export const API_URL_TOKEN = new InjectionToken<string>('app.api-url');
 
 @NgModule({
   declarations: [
@@ -46,7 +49,15 @@ import { UnlessDirective } from './directive/unless.directive';
     RouterModule.forRoot(routes)
   ],
   providers: [
-    httpInterceptorsProviders
+    httpInterceptorsProviders,
+    // Voici les types de providers disponibles
+    // Lorsque nous souhaitons déclarer explicitement un service
+    Demo,  // Raccourcis d'écriture, une classe : équivalent à l'écriture ci-dessous
+    { provide: Demo, useClass: Demo }, // provider "useClass", inférence sur le constructeur pour instancier le service
+    { provide: Demo, useValue: {} }, // le service existe déjà en tant que valeur, l'utiliser directement
+    { provide: Demo, useExisting: Demo }, // le service existe déjà en tant que service, le réutiliser (éventuellement avec une autre clé)
+    { provide: Demo, useFactory: () => new Demo() }, // on fournit la factory
+    { provide: API_URL_TOKEN, useValue: 'api.example.com'}
   ],
   bootstrap: [AppComponent]
 })
