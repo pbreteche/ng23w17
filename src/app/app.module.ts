@@ -19,6 +19,7 @@ import localeFr from '@angular/common/locales/fr';
 import { TranslitPipe } from './pipe/translit.pipe';
 import { IndexComponent } from './component/group/index/index.component';
 import { DetailComponent } from './component/group/detail/detail.component';
+import { HighlightedDirective } from './directive/highlighted.directive';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DetailComponent } from './component/group/detail/detail.component';
     LoginComponent,
     TranslitPipe,
     IndexComponent,
-    DetailComponent
+    DetailComponent,
+    HighlightedDirective
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@
     <h2 [ngClass]="nameClasses">{{ contact.firstName }} {{ contact.lastName }}</h2>
     <dl>
         <dt>Email</dt>
-        <dd>{{ contact.email }}</dd>
+        <dd appHighlighted="pink">{{ contact.email }}</dd>
         <dt>Anniversaire</dt>
         <dd>{{ contact.birthday | date : 'longDate' : undefined : 'fr' }}</dd>
     </dl>
