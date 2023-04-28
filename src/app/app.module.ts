@@ -20,6 +20,7 @@ import { TranslitPipe } from './pipe/translit.pipe';
 import { IndexComponent } from './component/group/index/index.component';
 import { DetailComponent } from './component/group/detail/detail.component';
 import { HighlightedDirective } from './directive/highlighted.directive';
+import { UnlessDirective } from './directive/unless.directive';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HighlightedDirective } from './directive/highlighted.directive';
     TranslitPipe,
     IndexComponent,
     DetailComponent,
-    HighlightedDirective
+    HighlightedDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
